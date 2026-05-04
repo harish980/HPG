@@ -407,7 +407,7 @@
     </footer>
 
     <!-- JavaScript for Form Interactivity -->
-    <script>
+    <!-- <script>
         document.getElementById('insuranceForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
@@ -420,6 +420,39 @@
                 alert(`Thank you, ${name}! One of our Health Policy Gurus will contact you shortly with the best quotes for a ${coverage} plan.`);
                 this.reset();
             }
+        });
+    </script>-->
+     <script>
+        document.getElementById('insuranceForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // 1. Gather form data
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const age = document.getElementById('age').value;
+            const coverage = document.getElementById('coverage').value;
+            
+            // 2. YOUR WHATSAPP NUMBER
+            // Enter your number with the country code (e.g., 91 for India) 
+            // Do NOT use '+' or spaces or dashes.
+            const yourWhatsAppNumber = "+919971995423"; 
+            
+            // 3. Format the message for WhatsApp (%0A creates a new line)
+            const message = `*New Health Insurance Lead!* %0A%0A` +
+                            `*Name:* ${name} %0A` +
+                            `*Phone:* ${phone} %0A` +
+                            `*Age:* ${age} %0A` +
+                            `*Coverage Type:* ${coverage} %0A%0A` +
+                            `Please connect with me regarding a policy.`;
+            
+            // 4. Create the WhatsApp URL
+            const whatsappURL = `https://wa.me/${9971995423}?text=${message}`;
+            
+            // 5. Open WhatsApp in a new tab/window
+            window.open(whatsappURL, '_blank');
+            
+            // 6. Optional: Reset the form after submission
+            this.reset();
         });
     </script>
 </body>
